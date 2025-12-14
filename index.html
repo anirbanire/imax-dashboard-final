@@ -83,7 +83,7 @@
         <li>Indexed performance (Jan 2020 = 100) shows IMAX and CNK gradually moving back toward their pre‑COVID baseline, whereas AMC stabilises at roughly one‑third of its original index value.</li>
         <li>IMAX revenue has almost tripled since 2020 and net income has turned positive from 2022 onward, supporting the stronger equity recovery relative to highly leveraged peers.</li>
         <li>IMAX box office has grown faster than the wider global box office, indicating that premium formats and blockbuster releases are key drivers of its recovery.</li>
-        <li>The combination of stronger fundamentals and more stable stock performance suggests IMAX can negotiate better partner deals than competitors and selectively expand into high‑growth markets.</li>
+        <li>If IMAX sustains low double‑digit revenue growth and current margins in 2025F and beyond, the stock is well positioned to move further toward pre‑COVID index levels, supporting a strategy focused on scaling high‑margin premium screens.</li>
       </ul>
     </div>
 
@@ -129,20 +129,22 @@
 
     <!-- FINANCIALS -->
     <h2 id="fin">IMAX Revenue and Net Income (2020–2025F)</h2>
-    <p style="font-size:12px; margin:0 0 5px 0;">Annual IMAX revenue and net income (USD millions), including 2025 management or analyst forecasts.</p>
+    <p style="font-size:12px; margin:0 0 5px 0;">
+      Annual IMAX revenue and net income (USD millions), including a simple 2025 forecast (2025F) based on company guidance and recent growth trends rather than actual reported results.
+    </p>
     <div id="fin_chart" class="chart"></div>
     <ul class="notes">
       <li>Revenue nearly doubles from 2020 to 2021 and continues to grow through 2023, with a modest dip in 2024 and a forecasted step‑up again in 2025F.</li>
-      <li>Net income shifts from losses in 2020 to positive values after 2022, aligning with the stronger equity recovery seen in the stock charts.</li>
+      <li>The positive 2025F outlook, combined with improving margins, supports a prescriptive strategy of reinvesting in high‑margin premium screens and technology upgrades.</li>
     </ul>
 
     <!-- BOX OFFICE -->
     <h2 id="box">Global vs IMAX Box Office (USD billions)</h2>
-    <p style="font-size:12px; margin:0 0 5px 0;">Annual global box office versus IMAX box office (USD billions), including 2025 forecasts.</p>
+    <p style="font-size:12px; margin:0 0 5px 0;">Annual global box office versus IMAX box office (USD billions), including simple 2025 forecasts.</p>
     <div id="box_chart" class="chart"></div>
     <ul class="notes">
       <li>Global box office moves back toward pre‑COVID levels, although recovery is not perfectly linear across years.</li>
-      <li>IMAX box office grows faster in relative terms, suggesting strong demand for premium formats and blockbuster releases.</li>
+      <li>IMAX box office grows faster in relative terms, suggesting that prioritising blockbuster partnerships and premium experiences is critical to sustaining growth.</li>
     </ul>
 
     <!-- LIMITATIONS & NEXT STEPS -->
@@ -150,7 +152,8 @@
     <div class="box">
       <ul class="notes">
         <li>The analysis focuses on headline stock prices, simple quarterly averages and high‑level financials, without segmenting by region, screen count or individual film performance.</li>
-        <li>Future work could extend this dashboard by comparing IMAX with streaming competitors, adding cash‑flow and leverage metrics, and using forecasting models to project revenue or box office under different recovery scenarios.</li>
+        <li>Forecasts are deliberately simple and trend‑based and do not incorporate full macroeconomic or competitive scenario modelling.</li>
+        <li>Future work could compare IMAX with streaming competitors, add cash‑flow and leverage metrics, and use richer forecasting or scenario analysis to stress‑test IMAX’s recovery under different box‑office and cost assumptions.</li>
       </ul>
     </div>
 
@@ -162,11 +165,13 @@
         <li>Daily share prices for IMAX, CNK and AMC were collected from public market data and aggregated into quarterly averages to reduce noise and emphasise long‑term trends.</li>
         <li>IMAX financial metrics and global versus IMAX box office figures were taken from publicly available company reports and industry summaries, then manually structured into CSV files before being embedded as JavaScript arrays.</li>
         <li>Stock indices were created by normalising early‑2020 prices to 100 and averaging these index values at a quarterly level to compare relative recovery paths.</li>
+        <li>All datasets are publicly available, contain no personal or GDPR‑sensitive information, and are used solely for educational, non‑commercial analysis in line with the module’s academic integrity guidelines.</li>
+        <li>Data sources are cited in the accompanying assignment documentation, and figures are used as‑is without attempting to reverse‑engineer or replicate any proprietary models.</li>
       </ul>
 
       <h3>Use of AI tools</h3>
       <p style="font-size:13px;">
-        AI tools were used to help design the overall dashboard layout, generate and debug JavaScript and Plotly code, and to convert raw CSV data into embedded JavaScript arrays.  
+        AI tools were used to help design the overall dashboard layout, generate and debug JavaScript and Plotly code, and convert raw CSV data into embedded JavaScript arrays.  
         The quarterly resampling logic and Git/GitHub workflow were refined with AI assistance, while data sourcing, business framing, chart selection and final storytelling were carried out independently.  
         All AI‑generated suggestions were checked against the underlying data, and the code was iteratively adapted to match the specific IMAX use case and the technical constraints of the assignment brief.
       </p>
@@ -318,6 +323,7 @@
   </script>
 </body>
 </html>
+
 
 
 
