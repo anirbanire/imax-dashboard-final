@@ -12,7 +12,7 @@
       margin: 0;
       padding: 0;
     }
-    h1, h2 {
+    h1, h2, h3 {
       font-family: Arial, sans-serif;
     }
     h1 {
@@ -22,6 +22,10 @@
     h2 {
       font-size: 20px;
       margin: 30px 0 5px 0;
+    }
+    h3 {
+      font-size: 16px;
+      margin: 25px 0 5px 0;
     }
     p, ul {
       font-size: 13px;
@@ -39,6 +43,13 @@
     .notes {
       margin: 5px 0 20px 0;
     }
+    .box {
+      border: 1px solid #335;
+      border-radius: 4px;
+      padding: 10px 12px;
+      margin: 10px 0 15px 0;
+      background-color: #021633;
+    }
     a {
       color: #6ec1ff;
       text-decoration: none;
@@ -51,71 +62,115 @@
 
 <body>
   <h1>IMAX Post-COVID Recovery Dashboard</h1>
-  <p style="max-width:900px; margin:0 auto 10px auto; font-size:14px;">
-    This dashboard uses quarterly averages from 2020–2025 to show how IMAX has recovered after the COVID‑19 shock
-    versus Cinemark (CNK) and AMC, and how its financial performance and IMAX box office track the wider global box office market.
-  </p>
-
-  <p style="text-align:center; font-size:12px; margin-bottom:15px;">
-    Jump to:
-    <a href="#imax">IMAX price</a> |
-    <a href="#price">Peer comparison</a> |
-    <a href="#index">Recovery index</a> |
-    <a href="#fin">Financials</a> |
-    <a href="#box">Box office</a>
-  </p>
-
-  <hr style="border-color:#444; margin-bottom:20px;">
 
   <div id="wrapper">
 
+    <!-- Business Question -->
+    <h2>Business question</h2>
+    <div class="box">
+      <p style="font-size:13px; margin:0;">
+        How has IMAX’s stock and financial performance recovered after the COVID‑19 shock compared with cinema peers
+        AMC and Cinemark (CNK), and what strategic actions should IMAX prioritise to strengthen its post‑COVID market
+        position?
+      </p>
+    </div>
+
+    <!-- Key Insights -->
+    <h2>Key insights</h2>
+    <div class="box">
+      <ul class="notes">
+        <li>IMAX’s quarterly average share price has recovered from mid‑teens in 2020 to the low‑20s by 2025, while AMC remains stuck below pre‑COVID levels despite meme‑stock spikes.</li>
+        <li>Indexed performance (Jan 2020 = 100) shows IMAX and CNK gradually moving back toward their pre‑COVID baseline, whereas AMC stabilises at roughly one‑third of its original index value.</li>
+        <li>IMAX revenue has almost tripled since 2020 and net income has turned positive from 2022 onward, supporting the stronger equity recovery relative to highly leveraged peers.</li>
+        <li>IMAX box office has grown faster than the wider global box office, indicating that premium formats and blockbuster releases are key drivers of its recovery.</li>
+        <li>The combination of stronger fundamentals and more stable stock performance suggests IMAX can negotiate better partner deals than competitors and selectively expand into high‑growth markets.</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; font-size:12px; margin-bottom:15px;">
+      Jump to:
+      <a href="#imax">IMAX price</a> |
+      <a href="#price">Peer comparison</a> |
+      <a href="#index">Recovery index</a> |
+      <a href="#fin">Financials</a> |
+      <a href="#box">Box office</a> |
+      <a href="#limits">Limitations</a> |
+      <a href="#docs">Documentation</a>
+    </p>
+
+    <hr style="border-color:#444; margin-bottom:20px;">
+
     <!-- IMAX PRICE ONLY -->
     <h2 id="imax">IMAX Share Price (Quarterly average, 2020–2025)</h2>
+    <p style="font-size:12px; margin:0 0 5px 0;">Quarterly average closing price for IMAX (USD), summarising daily stock data from 2020–2025.</p>
     <div id="imax_chart" class="chart"></div>
     <ul class="notes">
       <li>IMAX’s quarterly average price shows a sharp COVID‑19 drop in 2020 followed by a steady recovery through 2023–2025.</li>
-      <li>The quarterly view smooths daily noise and highlights the underlying trend in investor confidence in IMAX.</li>
+      <li>The quarterly view smooths daily volatility and highlights the underlying trend in investor confidence in IMAX.</li>
     </ul>
 
     <!-- PRICE LEVELS -->
     <h2 id="price">IMAX vs CNK vs AMC Share Prices (Quarterly average)</h2>
+    <p style="font-size:12px; margin:0 0 5px 0;">Quarterly average share prices (USD) for IMAX, CNK and AMC based on their respective daily closes.</p>
     <div id="price_chart" class="chart"></div>
     <ul class="notes">
-      <li>IMAX and CNK recover more steadily, while AMC remains more volatile and depressed across several quarters.</li>
-      <li>The quarterly comparison makes it easier to see that IMAX trades closer to CNK than to highly volatile AMC.</li>
+      <li>IMAX and CNK prices recover more steadily after 2020, while AMC remains highly volatile and ends the period at much lower average levels.</li>
+      <li>The comparative view emphasises IMAX’s relatively defensive profile versus AMC’s speculative trading behaviour.</li>
     </ul>
 
     <!-- INDEXED RECOVERY -->
     <h2 id="index">Post‑COVID Stock Recovery (Quarterly index, Jan 2020 = 100)</h2>
+    <p style="font-size:12px; margin:0 0 5px 0;">Quarterly averages of each company’s price index, where early‑2020 values are normalised to 100.</p>
     <div id="index_chart" class="chart"></div>
     <ul class="notes">
       <li>All three indices fall below 100 in 2020, but IMAX and CNK move closer back to baseline over time than AMC.</li>
-      <li>AMC’s index remains structurally weaker despite speculative rallies, while IMAX’s index improves as fundamentals recover.</li>
+      <li>AMC’s index remains structurally weaker despite meme‑stock rallies, while IMAX’s index improves as fundamentals recover.</li>
     </ul>
 
     <!-- FINANCIALS -->
     <h2 id="fin">IMAX Revenue and Net Income (2020–2025F)</h2>
+    <p style="font-size:12px; margin:0 0 5px 0;">Annual IMAX revenue and net income (USD millions), including 2025 management or analyst forecasts.</p>
     <div id="fin_chart" class="chart"></div>
     <ul class="notes">
       <li>Revenue nearly doubles from 2020 to 2021 and continues to grow through 2023, with a modest dip in 2024 and a forecasted step‑up again in 2025F.</li>
-      <li>Net income shifts from losses in 2020 to positive values after 2022, aligning with the stronger equity recovery.</li>
+      <li>Net income shifts from losses in 2020 to positive values after 2022, aligning with the stronger equity recovery seen in the stock charts.</li>
     </ul>
 
     <!-- BOX OFFICE -->
     <h2 id="box">Global vs IMAX Box Office (USD billions)</h2>
+    <p style="font-size:12px; margin:0 0 5px 0;">Annual global box office versus IMAX box office (USD billions), including 2025 forecasts.</p>
     <div id="box_chart" class="chart"></div>
     <ul class="notes">
-      <li>Global box office moves back toward pre‑COVID levels, while IMAX box office grows faster relative to the overall market.</li>
-      <li>This supports IMAX’s focus on premium formats and blockbuster content in its growth strategy.</li>
+      <li>Global box office moves back toward pre‑COVID levels, although recovery is not perfectly linear across years.</li>
+      <li>IMAX box office grows faster in relative terms, suggesting strong demand for premium formats and blockbuster releases.</li>
     </ul>
 
-    <!-- KEY RECOMMENDATIONS -->
-    <h2>Key recommendations for IMAX</h2>
-    <ul class="notes">
-      <li>Prioritise premium large‑format releases where IMAX’s box office and equity recovery outpace peers.</li>
-      <li>Use improved fundamentals and more stable stock performance to secure better studio and exhibitor partnerships than highly leveraged competitors.</li>
-      <li>Focus expansion in regions where quarterly recovery metrics are strongest, while managing exposure in weaker territories.</li>
-    </ul>
+    <!-- LIMITATIONS & NEXT STEPS -->
+    <h2 id="limits">Limitations and next steps</h2>
+    <div class="box">
+      <ul class="notes">
+        <li>The analysis focuses on headline stock prices, simple quarterly averages and high‑level financials, without segmenting by region, screen count or individual film performance.</li>
+        <li>Future work could extend this dashboard by comparing IMAX with streaming competitors, adding cash‑flow and leverage metrics, and using forecasting models to project revenue or box office under different recovery scenarios.</li>
+      </ul>
+    </div>
+
+    <!-- DOCUMENTATION & AI USAGE -->
+    <h2 id="docs">Data, methods and AI usage</h2>
+    <div class="box">
+      <h3 style="margin-top:0;">Data and preparation</h3>
+      <ul class="notes">
+        <li>Daily share prices for IMAX, CNK and AMC were collected from public market data and aggregated into quarterly averages to reduce noise and emphasise long‑term trends.</li>
+        <li>IMAX financial metrics and global versus IMAX box office figures were taken from publicly available company reports and industry summaries, then manually structured into CSV files before being embedded as JavaScript arrays.</li>
+        <li>Stock indices were created by normalising early‑2020 prices to 100 and averaging these index values at a quarterly level to compare relative recovery paths.</li>
+      </ul>
+
+      <h3>Use of AI tools</h3>
+      <p style="font-size:13px;">
+        AI tools were used to help design the overall dashboard layout, generate and debug JavaScript and Plotly code, and to convert raw CSV data into embedded JavaScript arrays.  
+        The quarterly resampling logic and Git/GitHub workflow were refined with AI assistance, while data sourcing, business framing, chart selection and final storytelling were carried out independently.  
+        All AI‑generated suggestions were checked against the underlying data, and the code was iteratively adapted to match the specific IMAX use case and the technical constraints of the assignment brief.
+      </p>
+    </div>
 
   </div>
 
@@ -162,9 +217,9 @@
 
     /* ========= 2. QUARTERLY INDEX ARRAYS (from price_index_quarterly.csv) ========= */
     var indexDates = ["2020-Q1","2020-Q2","2020-Q3","2020-Q4","2021-Q1","2021-Q2","2021-Q3","2021-Q4","2022-Q1","2022-Q2","2022-Q3","2022-Q4","2023-Q1","2023-Q2","2023-Q3","2023-Q4","2024-Q1","2024-Q2","2024-Q3","2024-Q4","2025-Q1","2025-Q2","2025-Q3","2025-Q4"];
-    var imaxIndex  = [77.229,57.0453,63.0541,67.2195,97.2315,94.6246,88.8057,90.6412,80.742,74.3321,70.8417,73.2944,74.9159,73.6122,75.9082,77.6216,76.9249,79.698,79.1169,78.9973,79.5533,79.9444,80.3352,80.7261];
-    var cnkIndex   = [75.2952,39.8232,36.591,36.9043,61.9116,59.4989,54.2576,55.6115,48.9344,43.2934,39.4293,39.9072,40.827,39.6441,41.3276,43.0375,42.9418,45.0464,45.1549,44.9092,45.6927,46.2216,46.7503,47.279];
-    var amcIndex   = [77.1944,58.6057,67.0982,43.8231,102.5101,120.6815,111.5953,95.9126,56.9183,46.3667,39.9568,38.0035,34.8835,33.856,33.4879,34.0289,33.5901,33.2804,32.9385,32.4582,32.2358,31.9387,31.6417,31.3446];
+    var imaxIndex  = [77.228954,57.045296,63.054116,67.219512,97.231507,94.624555,88.805737,90.641177,80.742037,74.332085,70.841727,73.294373,74.915929,73.612165,75.908152,77.621551,76.924872,79.698036,79.116918,78.997305,79.553312,79.944375,80.335243,80.72611];
+    var cnkIndex   = [75.29517,39.82324,36.591026,36.90426,61.91159,59.498947,54.2576,55.611492,48.934438,43.293372,39.429268,39.907182,40.826956,39.64409,41.327555,43.03751,42.941784,45.046379,45.1549,44.909228,45.692716,46.221569,46.750296,47.279024];
+    var amcIndex   = [77.194401,58.605721,67.098241,43.823116,102.510075,120.681517,111.595292,95.91257,56.918332,46.366715,39.956809,38.003526,34.883507,33.856033,33.487855,34.028935,33.590132,33.280408,32.938541,32.458165,32.23584,31.9387,31.641742,31.344583];
 
     var layout_index = {
       title: 'Post-COVID Stock Recovery (Quarterly index, Jan 2020 = 100)',
@@ -185,7 +240,7 @@
       {responsive: true}
     );
 
-    /* ========= 3. IMAX FINANCIALS (unchanged) ========= */
+    /* ========= 3. IMAX FINANCIALS ========= */
     var finYears     = ["2020","2021","2022","2023","2024","2025"];
     var finRevenue   = [137.0,254.88,300.81,374.84,352.21,449.062];
     var finNetIncome = [-143.78,-22.33,-22.8,25.34,26.06,40.0];
@@ -223,7 +278,7 @@
       {responsive: true}
     );
 
-    /* ========= 4. GLOBAL vs IMAX BOX OFFICE (unchanged) ========= */
+    /* ========= 4. GLOBAL vs IMAX BOX OFFICE ========= */
     var boxYears  = ["2020","2021","2022","2023","2024","2025"];
     var globalBox = [20,21,26,33,30,32];
     var imaxBox   = [0.1,0.5,0.85,1.06,0.9,1.10];
@@ -263,6 +318,7 @@
   </script>
 </body>
 </html>
+
 
 
 
