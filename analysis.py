@@ -20,7 +20,10 @@ fig_price = px.line(
 fig_price.update_layout(
     xaxis_title="Date",
     yaxis_title="Share Price (USD)",
-    template="plotly_white"
+    template="plotly_dark",
+    plot_bgcolor="#001128",
+    paper_bgcolor="#001128",
+    font=dict(color="white")
 )
 
 fig_price.write_html("index.html", full_html=True)
@@ -39,7 +42,10 @@ fig_index = px.line(
 fig_index.update_layout(
     xaxis_title="Date",
     yaxis_title="Price Index (Jan 2020 = 100)",
-    template="plotly_white"
+    template="plotly_dark",
+    plot_bgcolor="#001128",
+    paper_bgcolor="#001128",
+    font=dict(color="white")
 )
 
 fig_index.write_html("index_indexed.html", full_html=True)
@@ -63,7 +69,7 @@ fig_fin.add_scatter(
     line=dict(color="#d62728")
 )
 
-# show value labels on revenue bars
+# value labels on revenue bars
 fig_fin.update_traces(
     selector=dict(type="bar"),
     texttemplate="%{y:.0f}",
@@ -76,7 +82,10 @@ fig_fin.update_layout(
     yaxis_title="USD millions",
     uniformtext_minsize=10,
     uniformtext_mode="hide",
-    template="plotly_white"
+    template="plotly_dark",
+    plot_bgcolor="#001128",
+    paper_bgcolor="#001128",
+    font=dict(color="white")
 )
 
 fig_fin.write_html("index_financials.html", full_html=True)
@@ -113,8 +122,10 @@ fig_box.update_layout(
     yaxis_title="USD billions",
     uniformtext_minsize=10,
     uniformtext_mode="hide",
-    template="plotly_white"
+    template="plotly_dark",
+    plot_bgcolor="#001128",
+    paper_bgcolor="#001128",
+    font=dict(color="white")
 )
 
 fig_box.write_html("index_boxoffice.html", full_html=True)
-
