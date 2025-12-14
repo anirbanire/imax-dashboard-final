@@ -59,7 +59,8 @@
 
   <p style="text-align:center; font-size:12px; margin-bottom:15px;">
     Jump to:
-    <a href="#price">Share prices</a> |
+    <a href="#imax">IMAX price</a> |
+    <a href="#price">Peer comparison</a> |
     <a href="#index">Recovery index</a> |
     <a href="#fin">Financials</a> |
     <a href="#box">Box office</a>
@@ -68,6 +69,14 @@
   <hr style="border-color:#444; margin-bottom:20px;">
 
   <div id="wrapper">
+
+    <!-- IMAX PRICE ONLY -->
+    <h2 id="imax">IMAX Share Price (Timeline)</h2>
+    <div id="imax_chart" class="chart"></div>
+    <ul class="notes">
+      <li>IMAX trades above 20 USD at the start of 2020 but sells off sharply as COVID‑19 hits, reaching single‑digit levels in March.</li>
+      <li>The price then stabilises and begins to grind higher, setting the context for later comparison with CNK and AMC.</li>
+    </ul>
 
     <!-- PRICE LEVELS -->
     <h2 id="price">IMAX vs CNK vs AMC Share Prices</h2>
@@ -112,7 +121,7 @@
   </div>
 
   <script>
-    // ---------- 1) PRICE CHART (sample from price_compare.csv) ----------
+    // ---------- PRICE DATA ARRAYS (from price_compare.csv) ----------
     var priceDates = [
       "2020-01-02","2020-01-03","2020-01-06","2020-01-07","2020-01-08","2020-01-09","2020-01-10",
       "2020-01-13","2020-01-14","2020-01-15","2020-01-16","2020-01-17","2020-01-21","2020-01-22",
@@ -165,6 +174,25 @@
       24.04,23.74
     ];
 
+    // ---------- IMAX PRICE ONLY ----------
+    var layout_imax = {
+      title: 'IMAX Share Price (Daily, 2020 sample)',
+      xaxis: {title: 'Date'},
+      yaxis: {title: 'Share Price (USD)'},
+      plot_bgcolor: '#001128',
+      paper_bgcolor: '#001128',
+      font: {color: 'white'}
+    };
+
+    Plotly.newPlot('imax_chart',
+      [
+        {x: priceDates, y: priceIMAX, type: 'scatter', mode: 'lines', name: 'IMAX', line: {color: '#1f77b4'}}
+      ],
+      layout_imax,
+      {responsive: true}
+    );
+
+    // ---------- PEER PRICE COMPARISON ----------
     var layout_price = {
       title: 'IMAX vs CNK vs AMC Share Prices (Daily, 2020 sample)',
       xaxis: {title: 'Date'},
@@ -184,7 +212,7 @@
       {responsive: true}
     );
 
-    // ---------- 2) INDEXED RECOVERY (sample from price_index.csv) ----------
+    // ---------- INDEXED RECOVERY (sample from price_index.csv) ----------
     var indexDates = [
       "2020-01-02","2020-01-03","2020-01-06","2020-01-07","2020-01-08","2020-01-09","2020-01-10",
       "2020-01-13","2020-01-14","2020-01-15","2020-01-16","2020-01-17","2020-01-21","2020-01-22",
@@ -245,7 +273,7 @@
       {responsive: true}
     );
 
-    // ---------- 3) IMAX FINANCIALS ----------
+    // ---------- IMAX FINANCIALS (imax_financials.csv) ----------
     var finYears     = ["2020","2021","2022","2023","2024","2025"];
     var finRevenue   = [137.0,254.88,300.81,374.84,352.21,449.062];
     var finNetIncome = [-143.78,-22.33,-22.8,25.34,26.06,40.0];
@@ -283,7 +311,7 @@
       {responsive: true}
     );
 
-    // ---------- 4) GLOBAL vs IMAX BOX OFFICE ----------
+    // ---------- GLOBAL vs IMAX BOX OFFICE (global_boxoffice.csv with simple 2025F) ----------
     var boxYears  = ["2020","2021","2022","2023","2024","2025"];
     var globalBox = [20,21,26,33,30,32];
     var imaxBox   = [0.1,0.5,0.85,1.06,0.9,1.10];
@@ -323,3 +351,4 @@
   </script>
 </body>
 </html>
+
