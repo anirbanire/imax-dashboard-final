@@ -1,27 +1,34 @@
 import pandas as pd
 import plotly.express as px
 
-# 1) Load daily price comparison data
+# ---------- 1) IMAX vs CNK vs AMC prices ----------
 prices = pd.read_csv("data/price_compare.csv")
-
-# Make sure Date column is parsed as dates
 prices["Date"] = pd.to_datetime(prices["Date"])
 
-# 2) Line chart: IMAX vs CNK vs AMC prices
 fig_price = px.line(
     prices,
     x="Date",
-    y=["IMAX", "CNK", "AMC"],  # use your actual column names
-    title="IMAX vs CNK vs AMC Share Prices (Daily)"
+    y=["IMAX", "CNK", "AMC"],
+    title="IMAX vs CNK vs AMC Share Prices (Daily)",
+    color_discrete_map={
+        "IMAX": "#1f77b4",   # blue
+        "CNK":  "#d62728",   # red
+        "AMC":  "#ff7f0e"    # orange
+    }
 )
 
-# 3) Save to HTML dashboard
+fig_price.update_layout(
+    xaxis_title="Date",
+    yaxis_title="Share Price (USD)",
+    template="plotly_white"
+)
+
 fig_price.write_html("index.html", full_html=True)
-# 4) Load price index data
+
+# ---------- 2) Indexed recovery (Jan 2020 = 100) ----------
 idx = pd.read_csv("data/price_index.csv")
 idx["Date"] = pd.to_datetime(idx["Date"])
 
-# 5) Line chart: indexed recovery (Jan 2020 = 100)
 fig_index = px.line(
     idx,
     x="Date",
@@ -29,15 +36,18 @@ fig_index = px.line(
     title="Post-COVID Stock Recovery (Jan 2020 = 100)"
 )
 
-# 6) Save index chart as separate HTML for now
-fig_index.write_html("index_indexed.html", full_html=True)
-# 7) Load IMAX financials (2020–2025F)
-fin = pd.read_csv("data/imax_financials.csv")
+fig_index.update_layout(
+    xaxis_title="Date",
+    yaxis_title="Price Index (Jan 2020 = 100)",
+    template="plotly_white"
+)
 
-# Ensure Year is treated as a number or string (no dates needed here)
+fig_index.write_html("index_indexed.html", full_html=True)
+
+# ---------- 3) IMAX financials (2020–2025F) ----------
+fin = pd.read_csv("data/imax_financials.csv")
 fin["Year"] = fin["Year"].astype(str)
 
-# 8) Bar + line chart: Revenue and Net Income
 fig_fin = px.bar(
     fin,
     x="Year",
@@ -45,21 +55,36 @@ fig_fin = px.bar(
     title="IMAX Revenue and Net Income (2020–2025F)"
 )
 
-# Add Net Income as a line on top
 fig_fin.add_scatter(
     x=fin["Year"],
     y=fin["NetIncome USD millions"],
     mode="lines+markers",
-    name="NetIncome USD millions"
+    name="NetIncome USD millions",
+    line=dict(color="#d62728")
 )
 
-# 9) Save financial chart
+# show value labels on revenue bars
+fig_fin.update_traces(
+    selector=dict(type="bar"),
+    texttemplate="%{y:.0f}",
+    textposition="outside",
+    marker_color="#1f77b4"
+)
+
+fig_fin.update_layout(
+    xaxis_title="Year",
+    yaxis_title="USD millions",
+    uniformtext_minsize=10,
+    uniformtext_mode="hide",
+    template="plotly_white"
+)
+
 fig_fin.write_html("index_financials.html", full_html=True)
-# 10) Load global vs IMAX box office
+
+# ---------- 4) Global vs IMAX box office ----------
 box = pd.read_csv("data/global_boxoffice.csv")
 box["Year"] = box["Year"].astype(str)
 
-# 11) Column + line chart: Global vs IMAX box office (USD billions)
 fig_box = px.bar(
     box,
     x="Year",
@@ -71,9 +96,25 @@ fig_box.add_scatter(
     x=box["Year"],
     y=box["IMAX Boxoffice USD billion"],
     mode="lines+markers",
-    name="IMAX Boxoffice USD billion"
+    name="IMAX Boxoffice USD billion",
+    line=dict(color="#1f77b4")
 )
 
-# 12) Save box office chart
+# value labels on global box office bars
+fig_box.update_traces(
+    selector=dict(type="bar"),
+    texttemplate="%{y:.2f}",
+    textposition="outside",
+    marker_color="#7f7f7f"
+)
+
+fig_box.update_layout(
+    xaxis_title="Year",
+    yaxis_title="USD billions",
+    uniformtext_minsize=10,
+    uniformtext_mode="hide",
+    template="plotly_white"
+)
+
 fig_box.write_html("index_boxoffice.html", full_html=True)
 
