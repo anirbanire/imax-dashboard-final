@@ -18,7 +18,7 @@
     h1 {
       text-align: center;
       margin-top: 10px;
-      color: #1E90FF; /* title blue */
+      color: #1E90FF; /* bright blue title */
     }
     h2 {
       font-size: 20px;
@@ -163,11 +163,11 @@
     <div class="box">
       <h3 style="margin-top:0;">Data and preparation</h3>
       <ul class="notes">
-        <li>Daily share prices for IMAX, CNK and AMC were collected from public market data and aggregated into quarterly averages to reduce noise and emphasise long‑term trends.</li>
-        <li>IMAX financial metrics and global versus IMAX box office figures were taken from publicly available company reports and industry summaries, then manually structured into CSV files before being embedded as JavaScript arrays.</li>
-        <li>Stock indices were created by normalising early‑2020 prices to 100 and averaging these index values at a quarterly level to compare relative recovery paths.</li>
+        <li>Daily share prices for IMAX, CNK and AMC were downloaded from public market data sources into Google Sheets and exported as CSV files (<code>price_compare.csv</code> and <code>price_index.csv</code>).</li>
+        <li>A consolidated master sheet was built in Google Sheets to align tickers and trading dates, to add quarter labels, and to construct normalised price indices with Jan 2020 set to 100.</li>
+        <li>Python (pandas) and VS Code were used to validate data quality, test different aggregation options, and generate cleaner quarterly datasets (<code>price_compare_quarterly.csv</code> and <code>price_index_quarterly.csv</code>) for the dashboard.</li>
+        <li>All charts are rendered using Plotly in a single self‑contained HTML file, which is version‑controlled with Git and published via GitHub Pages as a static BI dashboard.</li>
         <li>All datasets are publicly available, contain no personal or GDPR‑sensitive information, and are used solely for educational, non‑commercial analysis in line with the module’s academic integrity guidelines.</li>
-        <li>Data sources are cited in the accompanying assignment documentation, and figures are used as‑is without attempting to reverse‑engineer or replicate any proprietary models.</li>
       </ul>
 
       <h3>Use of AI tools</h3>
@@ -324,6 +324,7 @@
   </script>
 </body>
 </html>
+
 
 
 
